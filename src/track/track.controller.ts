@@ -20,18 +20,18 @@ export class TrackController {
 
   @Post()
   createTrack(@Body() body: CreateTrackDto) {
-    // TODO
+    return this.trackService.insert(body);
   }
 
   @Delete(':_id')
   @HttpCode(HttpStatus.NO_CONTENT)
   rmTrack(@Param() { _id }: MongoIdDto) {
-    // TODO
+    return this.trackService.rm(_id);
   }
 
   @Get(':_id')
   getOne(@Param() { _id }: MongoIdDto) {
-    // TODO
+    return this.trackService.getById(_id);
   }
 
   @Get()

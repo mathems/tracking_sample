@@ -1,6 +1,7 @@
 import { isValidObjectId, ObjectId, mongo } from 'mongoose';
 import { Transform } from 'class-transformer';
 import { BadRequestException } from '@nestjs/common';
+import { IsDefined } from 'class-validator';
 
 export class MongoIdDto {
   @Transform(({ value }) => {
@@ -9,5 +10,6 @@ export class MongoIdDto {
 
     throw new BadRequestException('_id should be a valid mongo-id string');
   })
+  @IsDefined()
   _id: ObjectId;
 }
