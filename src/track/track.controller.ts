@@ -12,9 +12,12 @@ import {
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { CreateTrackDto } from './dto/create-track.dto';
+import { TrackService } from './track.service';
 
 @Controller('track')
 export class TrackController {
+  constructor(private trackService: TrackService) {}
+
   @Post()
   createTrack(@Body() body: CreateTrackDto) {
     // TODO
