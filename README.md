@@ -11,7 +11,6 @@
             > The search word, needle. (`q` - stands from query)
         * #### where
             > Amount of settings about where to search.
-> May be `Track` should be or include `TrackConfig`
 
 ---
 
