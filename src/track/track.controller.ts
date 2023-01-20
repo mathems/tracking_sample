@@ -10,8 +10,10 @@ import {
   Query,
 } from '@nestjs/common';
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
-import { PaginationDto } from '../common/dto/pagination.dto';
+import { PaginationQueryDto } from '../common/dto/pagination.dto';
+import { PaginationResDto } from '../common/dto/res/pagination.res-dto';
 import { CreateTrackDto } from './dto/create-track.dto';
+import { GetTrackByIdResDto } from './dto/res/get-track-by-id.res-dto';
 import { TrackService } from './track.service';
 
 @Controller('track')
@@ -30,12 +32,16 @@ export class TrackController {
   }
 
   @Get(':_id')
-  getOne(@Param() { _id }: MongoIdDto) {
+  async getOne(
+    @Param() { _id }: MongoIdDto,
+  ): Promise<GetTrackByIdResDto | Record<never, never>> {
     return this.trackService.getById(_id);
   }
 
   @Get()
-  getWithPagination(@Query() { limit, skip }: PaginationDto) {
-    // TODO
+  getWithPagination(
+    @Query() options: PaginationQueryDto,
+  ): Promise<PaginationResDto<GetTrackByIdResDto>> {
+    return this.trackService.getMany(options);
   }
 }
