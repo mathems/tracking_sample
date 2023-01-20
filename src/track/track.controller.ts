@@ -12,10 +12,10 @@ import {
   Query,
 } from '@nestjs/common';
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
-import { PaginationQueryDto } from '../common/dto/pagination.dto';
-import { PaginationResDto } from '../common/dto/pagination.res-dto';
 import { ChangeTrackStatusDto } from './dto/change-track-status.dto';
 import { CreateTrackDto } from './dto/create-track.dto';
+import { FindManyTracksDto } from './dto/find-many-tracks.dto';
+import { FindManyTracksResDto } from './dto/find-many-tracks.res-dto';
 import { GetTrackByIdResDto } from './dto/get-track-by-id.res-dto';
 import { UpdateTrackDto } from './dto/update-track.dto';
 import { TrackService } from './track.service';
@@ -58,8 +58,8 @@ export class TrackController {
 
   @Get()
   getWithPagination(
-    @Query() options: PaginationQueryDto,
-  ): Promise<PaginationResDto<GetTrackByIdResDto>> {
+    @Query() options: FindManyTracksDto,
+  ): Promise<FindManyTracksResDto> {
     return this.trackService.getMany(options);
   }
 }

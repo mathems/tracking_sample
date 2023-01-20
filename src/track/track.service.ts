@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
-import { PaginationQueryDto } from '../common/dto/pagination.dto';
-import { PaginationResDto } from '../common/dto/pagination.res-dto';
 import { NotExistsException } from '../common/exceptions/not-exists.exception';
 import { TrackStatus } from '../common/types/track/track-status-enum.type';
 import { CreateTrackDto } from './dto/create-track.dto';
+import { FindManyTracksDto } from './dto/find-many-tracks.dto';
+import { FindManyTracksResDto } from './dto/find-many-tracks.res-dto';
 import { UpdateTrackDto } from './dto/update-track.dto';
 import { TrackModel } from './schemas/track.model';
 
@@ -45,17 +45,19 @@ export class TrackService {
     return track;
   }
 
-  async getMany(options: PaginationQueryDto) {
-    const { limit, skip } = options;
-    const tracks = await this.trackModel
-      .find({})
-      .skip(skip)
-      .limit(limit)
-      .lean();
+  async getMany(options: FindManyTracksDto) {
+    const { limit, skip, sortBy, sortByType, status } = options;
+    const find = status ? { status } : {};
+    const query = this.trackModel.find(find).skip(skip).limit(limit);
 
-    return new PaginationResDto(tracks, {
-      limit,
-      skip,
+    sortBy && query.sort({ [sortBy]: sortByType });
+
+    const tracks = await query.lean();
+
+    return new FindManyTracksResDto(tracks, {
+      pagination: { skip, limit },
+      sort: { sortBy, sortByType },
+      filter: { status },
     });
   }
 }
