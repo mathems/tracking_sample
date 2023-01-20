@@ -1,8 +1,6 @@
 import { Transform } from 'class-transformer';
 import { IsIn, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-
-const NODE_ENVS = ['dev', 'prod', 'test'] as const;
-type NodeEnv = (typeof NODE_ENVS)[number];
+import { NodeEnv, NODE_ENVS } from '../types/node-env.type';
 
 export class Conf {
   @IsIn(NODE_ENVS)
@@ -11,13 +9,9 @@ export class Conf {
   @IsNotEmpty()
   NODE_ENV: NodeEnv = 'dev';
 
-  @IsString()
-  @IsNotEmpty()
-  MONGO_URL: string;
-
   @Transform(({ value }) => +value)
   @IsNumber()
-  MONGO_PORT: number;
+  MONGO_PORT = 27017;
 
   @IsString()
   @IsNotEmpty()
