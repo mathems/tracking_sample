@@ -18,8 +18,8 @@
 ---
 
 # TODO
-[ ] CRUD for TrackConfig
-[ ] Add filtering by status
-[ ] Add sorting by created date
-[ ] Pagination
-[ ] Cover with tests
+- [ ] CRUD for TrackConfig
+- [ ] Add filtering by status
+- [ ] Add sorting by created date
+- [ ] Pagination
+- [ ] Cover with tests
