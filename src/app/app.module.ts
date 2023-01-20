@@ -13,11 +13,14 @@ import { AppService } from './app.service';
     MongooseModule.forRootAsync({
       inject: [ConfigService],
       useFactory(conf: ConfigService<Conf>) {
+        const user = conf.get('MONGO_USER');
+        const pass = conf.get('MONGO_PASS');
+        const dbName = conf.get('MONGO_DB');
+        const port = conf.get('MONGO_PORT');
+
         return {
-          user: conf.get('MONGO_USER'),
-          pass: conf.get('MONGO_PASS'),
-          port: conf.get('MONGO_PORT'),
-          dbName: conf.get('MONGO_DB'),
+          uri: `mongodb://${user}:${pass}@localhost:${port}`,
+          dbName,
         };
       },
     }),

@@ -23,4 +23,5 @@ async function bootstrap() {
 
   logger.debug(`App is listened on ${await app.getUrl()}`);
 }
+
 bootstrap();
