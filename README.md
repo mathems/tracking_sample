@@ -3,9 +3,7 @@
 
 
 * ## Track
-    > Subscription to some parsing process.
-* ## TrackConfig
-    > Amount of settings that should control behavior, details of concrete track.
+    > Subscription to some parsing process. Amount of settings that should control behavior, details of concrete track.
     * ### TrackStatus
         > `active` | `pause` | `block`
     * ### TrackQuery
