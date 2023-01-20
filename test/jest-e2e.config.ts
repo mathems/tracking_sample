@@ -5,6 +5,6 @@ export default async (): Promise<Config.InitialOptions> => {
     displayName: 'e2e',
     rootDir: '.',
     preset: 'ts-jest',
-    globalSetup: '<rootDir>/jest.global-setup.ts',
+    globalSetup: '<rootDir>/jest-e2e.global-setup.ts',
   };
 };

@@ -5,5 +5,6 @@ export default async (): Promise<Config.InitialOptions> => {
     displayName: 'spec',
     rootDir: '../src',
     preset: 'ts-jest',
+    globalSetup: '<rootDir>/../test/jest-spec.global-setup.ts',
   };
 };
