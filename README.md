@@ -3,22 +3,19 @@
 
 
 * ## Track
-    > Subscription to some parsing process.
-* ## TrackConfig
-    > Amount of settings that should control behavior, details of concrete track.
-    * ### TrackStatus
+    > Subscription to some parsing process. Amount of settings that should control behavior, details of concrete track.
+    * ### `status`
         > `active` | `pause` | `block`
-    * ### TrackQuery
-        * #### q
-            > The search word, needle. (`q` - stands from query)
-        * #### where
-            > Amount of settings about where to search.
-> May be `Track` should be or include `TrackConfig`
+    * ### `needle`
+        > The search word.
+    * ### `options`
+        > Some options that define where to make search.
 
 ---
 
 # TODO
-- [ ] CRUD for TrackConfig
+- [x] Define types
+- [ ] CRUD for Track
 - [ ] Add filtering by status
 - [ ] Add sorting by created date
 - [ ] Pagination
