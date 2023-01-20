@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
 import { PaginationQueryDto } from '../common/dto/pagination.dto';
-import { PaginationResDto } from '../common/dto/res/pagination.res-dto';
+import { PaginationResDto } from '../common/dto/pagination.res-dto';
 import { CreateTrackDto } from './dto/create-track.dto';
 import { TrackModel } from './schemas/track.model';
 

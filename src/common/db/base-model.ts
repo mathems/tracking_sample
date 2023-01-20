@@ -1,11 +1,10 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop } from '@nestjs/mongoose';
 import { ObjectId, Types } from 'mongoose';
 import { IModel } from '../types/model-interface.type';
 
-@Schema({ timestamps: true })
-export class BaseModel implements IModel {
-  created_at: Date;
-  updated_at: Date;
+export abstract class BaseModel implements IModel {
+  createdAt: Date;
+  updatedAt: Date;
 
   @Prop({
     type: Types.ObjectId,

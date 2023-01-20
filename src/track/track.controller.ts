@@ -11,9 +11,9 @@ import {
 } from '@nestjs/common';
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
 import { PaginationQueryDto } from '../common/dto/pagination.dto';
-import { PaginationResDto } from '../common/dto/res/pagination.res-dto';
+import { PaginationResDto } from '../common/dto/pagination.res-dto';
 import { CreateTrackDto } from './dto/create-track.dto';
-import { GetTrackByIdResDto } from './dto/res/get-track-by-id.res-dto';
+import { GetTrackByIdResDto } from './dto/get-track-by-id.res-dto';
 import { TrackService } from './track.service';
 
 @Controller('track')
