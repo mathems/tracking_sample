@@ -7,7 +7,7 @@ import { Conf } from './common/config/conf.config';
 async function bootstrap() {
   const logger = new Logger('main.ts::bootstrap()');
   const app = await NestFactory.create(AppModule);
-  const conf = app.get<ConfigService<Conf>>(ConfigService);
+  const conf = app.get<ConfigService<Conf, true>>(ConfigService);
 
   app.useGlobalPipes(
     new ValidationPipe({
