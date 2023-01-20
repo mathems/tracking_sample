@@ -32,8 +32,9 @@
 # TODO
 - [x] Define types
 - [x] ConfModule
-- [ ] CRUD for Track
-- [ ] Add filtering by status
-- [ ] Add sorting by created date
-- [ ] Pagination
+- [x] CRUD for Track
+- [x] Add filtering by status
+- [x] Add sorting by created date
+- [x] Pagination
+- [ ] Setting test environment
 - [ ] Cover with tests
