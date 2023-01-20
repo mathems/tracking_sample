@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -8,11 +9,12 @@ import {
   Post,
 } from '@nestjs/common';
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
+import { CreateTrackDto } from './dto/create-track.dto';
 
 @Controller('track')
 export class TrackController {
   @Post()
-  createTrack() {
+  createTrack(@Body() body: CreateTrackDto) {
     // TODO
   }
 
