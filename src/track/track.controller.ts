@@ -7,8 +7,10 @@ import {
   HttpStatus,
   Param,
   Post,
+  Query,
 } from '@nestjs/common';
 import { MongoIdDto } from '../common/dto/mongo-id.dto';
+import { PaginationDto } from '../common/dto/pagination.dto';
 import { CreateTrackDto } from './dto/create-track.dto';
 
 @Controller('track')
@@ -30,7 +32,7 @@ export class TrackController {
   }
 
   @Get()
-  getWithPagination() {
+  getWithPagination(@Query() { limit, skip }: PaginationDto) {
     // TODO
   }
 }

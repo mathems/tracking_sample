@@ -1,6 +1,13 @@
-import { IsMongoId } from 'class-validator';
+import { isValidObjectId, ObjectId, mongo } from 'mongoose';
+import { Transform } from 'class-transformer';
+import { BadRequestException } from '@nestjs/common';
 
 export class MongoIdDto {
-  @IsMongoId()
-  _id: string;
+  @Transform(({ value }) => {
+    if (isValidObjectId(value))
+      return mongo.ObjectId.createFromHexString(value);
+
+    throw new BadRequestException('_id should be a valid mongo-id string');
+  })
+  _id: ObjectId;
 }
