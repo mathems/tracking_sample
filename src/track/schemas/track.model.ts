@@ -7,6 +7,7 @@ import { TrackStatus } from '../../common/types/track/track-status-enum.type';
 
 @Schema({
   collection: TRACK,
+  timestamps: true,
 })
 export class TrackModel extends BaseModel implements ITrack {
   @Prop({ required: true })

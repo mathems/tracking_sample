@@ -15,8 +15,8 @@ export class FullTrackDto extends MongoIdDto implements ITrack {
   options: Record<string, unknown>;
 
   @IsDate()
-  created_at: Date;
+  createdAt: Date;
 
   @IsDate()
-  updated_at: Date;
+  updatedAt: Date;
 }
