@@ -1,3 +1,5 @@
 import { IModel } from '../model-interface.type';
 
-export type ITrack = IModel;
+export interface ITrack extends IModel {
+  needle: string;
+}
