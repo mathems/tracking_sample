@@ -37,4 +37,4 @@
 - [x] Add sorting by created date
 - [x] Pagination
 - [ ] Setting test environment
-- [ ] Cover with tests
+- [ ] Cover with tests !!!
